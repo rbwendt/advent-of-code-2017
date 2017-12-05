@@ -3,3 +3,9 @@ data =: 'vxjtwn vjnxtw sxibvv mmws wjvtxn icawnd rprh';'fhaa qwy vqbq gsswej lxr
 data2 =: ;: each data
 uniquer =: 13 : '(# x) = (# ~. x)'
 +/ > uniquer each data2 NB. gives the correct answer 451
+
+NB. part 2
+NB. The first part will sum up all the cases where a value isn't an anagram by comparing sorted values (~: is not equal)
+NB. The second part is the count of comparisons, minus the diagonal.
+isvalid =: 13 : '(+/ +/ ~:/~ sort each y) = ((# y) * ( (# y) - 1))'
++/ > isvalid each data2 NB. answer is 223.
