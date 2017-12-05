@@ -1,30 +1,36 @@
-// use std::mem;
+
+const WIDTH: usize = 1000;
+const HEIGHT: usize = 1000;
+const UP: u8 = 0;
+const LEFT: u8 = 1;
+const RIGHT: u8 = 2;
+const DOWN: u8 = 3;
 
 fn main() {
-    let width = 1000;
-    let height = 1000;
-    let mut memory_raw = vec![0; width * height];
-    let mut memory_base: Vec<_> = memory_raw.as_mut_slice().chunks_mut(width).collect();
-    let mut memory: &mut [&mut [_]] = memory_base.as_mut_slice();
-    let mut highest = 0;
-    let val = 312051;
-    let mut locx = width / 2;
-    let mut locy = height / 2;
-    let mut dir = "up";
+
+    let mut memory_raw = vec![0; WIDTH * HEIGHT];
+    let mut memory_base: Vec<_> = memory_raw.as_mut_slice().chunks_mut(WIDTH).collect();
+    let memory: &mut [&mut [_]] = memory_base.as_mut_slice();
     
+    let val = 312051;
+    let mut locx = WIDTH / 2;
+    let mut locy = HEIGHT / 2;
+    let mut dir = UP;
+    let mut highest = 0;
+
     memory[locx][locy] = 1;
     loop {
         if highest > val {
             break;
         }
 
-        if dir == "right" {
+        if dir == RIGHT {
             locx = locx + 1;
-        } else if dir == "left" {
+        } else if dir == LEFT {
             locx = locx - 1;
-        } else if dir == "up" {
+        } else if dir == UP {
             locy = locy - 1;
-        } else if dir == "down" {
+        } else if dir == DOWN {
             locy = locy + 1;
         }
 
@@ -43,13 +49,13 @@ fn main() {
         }
 
         if memory[locx][locy + 1] == 0 && memory[locx + 1][locy] != 0 {
-            dir = "down";
+            dir = DOWN;
         } else if memory[locx + 1][locy] == 0 && memory[locx][locy - 1] != 0 {
-            dir = "right";
+            dir = RIGHT;
         } else if memory[locx][locy -1] == 0 && memory[locx -1][locy] != 0{
-            dir = "up";
+            dir = UP;
         } else if memory[locx - 1][locy] == 0 {
-            dir = "left";
+            dir = LEFT;
         }
     }
     println!("Highest value is {}", highest);
