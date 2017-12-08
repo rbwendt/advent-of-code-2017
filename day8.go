@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"errors"
-    "fmt"
+	"fmt"
 	"os"
 	"strconv"
 	"strings"
