@@ -65,10 +65,10 @@ def full_hash(s : String)
     dense_hash(sparse_hash(concat_lengths(convert_to_ascii(s))))
 end
 
-input1 = [206_u8,63_u8,255_u8,131_u8,65_u8,80_u8,238_u8,157_u8,254_u8,24_u8,133_u8,2_u8,16_u8,0_u8,1_u8,3_u8]
-input2 = "206,63,255,131,65,80,238,157,254,24,133,2,16,0,1,3"
+input = "206,63,255,131,65,80,238,157,254,24,133,2,16,0,1,3"
+input_u8 = input.split(",").map{|s| s.to_u8}
 
-list = weird_hash(input1)
+list = weird_hash(input_u8)
 
 puts "Part A: output: #{list[0]} * #{list[1]} = #{list[0] * list[1]}"
-puts "Part B: #{full_hash(input2)}"
+puts "Part B: #{full_hash(input)}"
