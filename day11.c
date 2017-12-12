@@ -11,10 +11,6 @@ struct Coordinates {
     int nw;
 };
 
-int max(int x, int y) {
-    return x > y? x : y;
-}
-
 struct Coordinates balance(struct Coordinates coords) {
     while (coords.ne < 0 && coords.nw < 0) {
         coords.n --;
