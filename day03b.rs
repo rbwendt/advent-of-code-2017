@@ -11,7 +11,6 @@ fn get_memory() -> [[usize; WIDTH]; HEIGHT] {
 }
 
 fn main() {
-
     let mut memory = get_memory();
 
     let val = 312051;
@@ -44,7 +43,6 @@ fn main() {
         
         if memory[locx][locy] > highest {
             highest = memory[locx][locy];
-            // println!("New highest at {} {} is {}", locx, locy, highest)
         }
 
         if memory[locx][locy + 1] == 0 && memory[locx + 1][locy] != 0 {
