@@ -2,7 +2,7 @@ struct ParseResult
   property name, weight, child_names
   
   def initialize(@name : String, @weight : Int32, @child_names : Array(String))
-    end
+  end
 end
   
 class TreeNode
@@ -86,7 +86,7 @@ parsed = inputs.map do |line|
   unless name.nil?
 	keyname = name
   end
-    map[keyname] = TreeNode.new(keyname, weight)
+  map[keyname] = TreeNode.new(keyname, weight)
 	ParseResult.new(keyname, weight, children_strs)
 end
 
@@ -96,7 +96,7 @@ parsed.each do |parse_result|
 		parse_result.child_names.map do |child_name|
 			map[child_name].parent = map[parse_result.name]
 			map[child_name]
-        end
+    end
 	end
 end
 
@@ -134,5 +134,3 @@ def drill_down(input_node, correction = 0) : Nil
 end
 
 drill_down(node)
-
-#the output 646.
