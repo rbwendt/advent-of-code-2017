@@ -42,34 +42,20 @@ struct Coordinates walkPath(char buff[BUFF_SIZE]) {
         switch(buff[i]) {
             case 'n':
                 if (buff[i+1] == ',') {
-                    // printf("north\n");
                     result.n ++;
                 } else if (buff[i+1] == 'e') {
-                    // printf("ne\n");
                     result.ne++;
                 } else if (buff[i+1] == 'w') {
-                    // printf("nw\n");
                     result.nw++;
-                } else {
-                    // result.n ++;
-                    
                 }
                 break;
             case 's':
                 if (buff[i+1] == ',') {
-                    // printf("south\n");
                     result.n --;
                 } else if (buff[i+1] == 'e') {
-                    // printf("se\n");
                     result.nw --;
-                    
                 } else if (buff[i+1] == 'w') {
-                    // printf("sw\n");
                     result.ne --;
-                    
-                } else {
-                    
-                    // result.n --;
                 }
                 break;
             case ',':
@@ -89,7 +75,6 @@ int main(int argc, char **argv) {
     char buff[BUFF_SIZE];
     FILE *f = fopen("data/day11.txt", "r");
     fgets(buff, BUFF_SIZE, f);
-    // printf("%s\n", buff);
     fclose(f);
 
     struct Coordinates coords = walkPath(buff);
@@ -97,7 +82,5 @@ int main(int argc, char **argv) {
     printf("Coords: N %d NE %d NW %d\n", coords.n, coords.ne, coords.nw);
     int d = dist(coords);
 
-    // 948 is too high.
-    // 813 too high
     printf("Distance: %d\n", d);
 }
