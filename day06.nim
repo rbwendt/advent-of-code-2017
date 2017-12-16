@@ -47,7 +47,6 @@ proc update_banks(b: var seq[int]): seq[int] =
 
 let a = get_input()
 var b = parse_input(a)
-# var  b = @[0, 2, 7, 0]
 
 var h = initTable[seq[int], bool]()
 var step = 0
