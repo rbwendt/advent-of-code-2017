@@ -68,7 +68,7 @@ fun partB() {
     
     val judge = Judge(5_000_000)
     val compared = judge.compareMatching(generatorA, 4, generatorB, 8)
-    println("Part B count: $compared")     
+    println("Part B count: $compared") // 279
 }
 
 fun main(args: Array<String>) {
